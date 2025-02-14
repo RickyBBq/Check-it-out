@@ -3,23 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Surprise</title>
+    <title>Valentine's Day Tulips</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <div class="container">
-        <h1 class="glow-text">💖 Happy Valentine's Day! 💖</h1>
-        <p class="glow-text">Click the button to make love bloom!</p>
-        <button class="btn" onclick="startValentine()">Click to Bloom 🌸</button>
-
-        <div id="flowerContainer"></div>
-
-        <p class="hidden-message glow-text" id="hiddenMessage">Our love grows like these flowers—beautiful and everlasting! 🌸💖</p>
+        <button id="showFlowersBtn">Click for Valentine's Surprise</button>
+        <div id="messageContainer" class="message-container">
+            <p class="romantic-message">"You are my everything, my love. Happy Valentine's Day!"</p>
+        </div>
+        <div id="flowersContainer" class="flowers-container">
+            <div class="tulip">
+                <div class="stem"></div>
+                <div class="leaves"></div>
+                <div class="bud"></div>
+                <div class="flower"></div>
+            </div>
+        </div>
     </div>
-
-    <audio id="valentineSong" src="valentine.mp3"></audio>
-
     <script src="script.js"></script>
 </body>
 </html>

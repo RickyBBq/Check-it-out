@@ -1,0 +1,87 @@
+/* Dark romantic background */
+body {
+    background: #0d0d0d; /* Deep dark background */
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Glowing floating hearts */
+@keyframes floatHearts {
+    0% { transform: translateY(0) scale(1); opacity: 0.9; }
+    100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
+}
+
+.heart {
+    position: absolute;
+    color: #ff2e63;
+    font-size: 20px;
+    animation: floatHearts 5s linear infinite;
+    opacity: 0.8;
+}
+
+/* Main container */
+.container {
+    padding: 50px 20px;
+    position: relative;
+    height: 100vh;
+}
+
+/* Glowing text */
+.glow-text {
+    color: #ff4d4d;
+    text-shadow: 0 0 10px #ff4d4d, 0 0 20px #ff4d4d, 0 0 30px #ff1a1a;
+}
+
+/* Button Styling */
+.btn {
+    background: #ff4d4d;
+    color: white;
+    font-size: 22px;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+    box-shadow: 0 0 15px #ff4d4d;
+}
+
+.btn:hover {
+    background-color: #cc0000;
+    box-shadow: 0 0 20px #ff1a1a;
+}
+
+/* Hidden romantic message */
+.hidden-message {
+    display: none;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+/* Glowing flowers */
+.flower {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/2913/2913990.png');
+    background-size: cover;
+    animation: grow 3s ease-in-out forwards;
+    opacity: 0;
+    filter: drop-shadow(0 0 15px #ff66b2);
+}
+
+@keyframes grow {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    h1 { font-size: 30px; }
+    p { font-size: 18px; }
+    .btn { font-size: 18px; padding: 10px 20px; }
+}

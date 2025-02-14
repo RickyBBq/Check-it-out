@@ -1,211 +1,73 @@
+/* Night sky background */
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #1a1a1a;
-    color: white;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background: radial-gradient(circle at center, #0a0a2a, #000);
     overflow: hidden;
+    font-family: 'Poppins', sans-serif;
 }
 
+.night {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('https://source.unsplash.com/1600x900/?stars,night') no-repeat center;
+    background-size: cover;
+    opacity: 0.6;
+    z-index: -1;
+}
+
+/* Main container */
 .container {
     text-align: center;
 }
 
+/* Button styling */
 button {
-    background-color: #ff66b2;
+    background-color: #ff4d6d;
     color: white;
-    font-family: 'Poppins', sans-serif;
     font-size: 18px;
-    padding: 15px 30px;
     border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
     cursor: pointer;
-    border-radius: 10px;
-    transition: background-color 0.3s ease;
+    transition: 0.3s ease-in-out;
 }
 
 button:hover {
-    background-color: #ff3385;
+    background-color: #ff1e50;
+    transform: scale(1.1);
 }
 
-.message-container {
-    margin-bottom: 30px;
-    display: none;
-}
-
-.romantic-message {
-    font-family: 'Great Vibes', cursive;
-    font-size: 36px;
-    color: #ff66b2;
-    animation: fadeIn 2s ease-in-out;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.flowers-container {
-    display: none;
-    position: relative;
-    margin-top: 20px;
-}
-
-.tulip {
-    position: relative;
-    display: block;
-    margin: 0 auto;
-    width: 100px;
-    height: 0;
-    animation: grow 10s ease-in-out forwards;
-}
-
-.stem {
-    width: 8px;
-    height: 0;
-    background-color: #2e8b57; /* Green stem */
-    margin: 0 auto;
-    border-radius: 5px;
-    animation: stemGrow 8s ease-in-out forwards;
-}
-
-.leaves {
-    position: absolute;
-    bottom: 30px;
-    width: 60px;
-    height: 30px;
-    background-color: #2e8b57;
-    border-radius: 50px;
-    left: 50%;
-    margin-left: -30px;
-    transform: rotate(-45deg);
-    opacity: 0;
-    animation: leafGrow 8s ease-in-out forwards;
-}
-
-.leaves:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    margin-left: -30px;
-    width: 60px;
-    height: 30px;
-    background-color: #2e8b57;
-    border-radius: 50px;
-    transform: rotate(45deg);
-    opacity: 0;
-    animation: leafGrow 8s ease-in-out forwards;
-}
-
-.bud {
-    width: 30px;
-    height: 30px;
-    background-color: #ff66b2; /* Pink bud */
-    border-radius: 50%;
-    margin: 0 auto;
-    position: absolute;
-    bottom: 70px;
-    opacity: 0;
-    animation: budGrow 6s ease-in-out forwards;
-}
-
+/* Flower animation */
 .flower {
-    width: 80px;
-    height: 80px;
-    background-color: #ff66b2; /* Pink flower */
-    border-radius: 50%;
-    margin: 0 auto;
     position: absolute;
-    bottom: 140px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
     opacity: 0;
-    animation: flowerBloom 10s ease-in-out forwards, shine 1s infinite alternate;
+    animation: bloom 3s ease-in-out forwards;
 }
 
-@keyframes grow {
-    0% {
-        height: 0;
-        width: 100px;
-        bottom: -50px;
-    }
-    100% {
-        height: 150px;
-        width: 100px;
-        bottom: 20px;
-        opacity: 1;
-    }
+@keyframes bloom {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
 }
 
-@keyframes stemGrow {
-    0% {
-        height: 0;
-    }
-    50% {
-        height: 80px;
-    }
-    100% {
-        height: 120px;
-        opacity: 1;
-    }
+/* Valentine's message */
+#valentineMessage, #credit {
+    font-size: 18px;
+    color: #ff99cc;
+    margin-top: 15px;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
 }
 
-@keyframes leafGrow {
-    0% {
-        opacity: 0;
-        transform: rotate(-45deg) scale(0);
-    }
-    50% {
-        opacity: 1;
-        transform: rotate(-45deg) scale(0.8);
-    }
-    100% {
-        opacity: 1;
-        transform: rotate(-45deg) scale(1);
-    }
-}
-
-@keyframes budGrow {
-    0% {
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
-    100% {
-        opacity: 1;
-        width: 30px;
-        height: 30px;
-        bottom: 80px;
-    }
-}
-
-@keyframes flowerBloom {
-    0% {
-        opacity: 0;
-        bottom: 140px;
-    }
-    100% {
-        opacity: 1;
-        bottom: 180px;
-    }
-}
-
-@keyframes shine {
-    0% {
-        box-shadow: 0 0 10px 10px rgba(255, 102, 178, 0.7);
-    }
-    100% {
-        box-shadow: 0 0 25px 25px rgba(255, 102, 178, 1);
-    }
-}
-
-.message-container {
+.hidden {
     display: none;
-    margin-top: 20px;
 }
